@@ -65,7 +65,7 @@ function HomePage() {
             <Link to="/representantes" className="btn-primary">
               Seja Representante PISONI <ArrowUpRight size={16} />
             </Link>
-            <Link to="/encontre-um-revendedor" className="btn-outline text-white">
+            <Link to="/encontre-um-revendedor" className="btn-outline text-[var(--brand-blue)]">
               Encontre um Revendedor
             </Link>
           </div>
