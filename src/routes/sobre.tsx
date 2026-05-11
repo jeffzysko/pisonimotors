@@ -47,8 +47,8 @@ function SobrePage() {
         <div className="container-x grid md:grid-cols-3 gap-10 max-w-5xl">
           {[
             { n: "2022", t: "Fundação", d: "Início do projeto PISONI no Brasil." },
-            { n: "2024", t: "Primeiro modelo", d: "Lançamento da scooter URBA." },
-            { n: "2025", t: "Linha completa", d: "Chegada da MOVE e expansão da rede." },
+            { n: "2024", t: "Primeiro modelo", d: "Lançamento da scooter PISONI C23." },
+            { n: "2025", t: "Linha completa", d: "Chegada da PISONI P112 e expansão da rede." },
           ].map((it) => (
             <div key={it.n}>
               <div className="font-display text-5xl text-[var(--copper)]">{it.n}</div>
