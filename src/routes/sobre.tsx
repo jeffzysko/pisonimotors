@@ -68,7 +68,7 @@ function SobrePage() {
             { n: "2025", t: "Linha completa", d: "Chegada da P112 e expansão da rede nacional." },
           ].map((it) => (
             <div key={it.n}>
-              <div className="font-display text-5xl text-[var(--brand-blue)]">{it.n}</div>
+              <div className="font-display text-5xl text-[var(--brand-orange)]">{it.n}</div>
               <div className="mt-4 font-display text-xl font-semibold">{it.t}</div>
               <p className="mt-2 text-foreground/60">{it.d}</p>
             </div>

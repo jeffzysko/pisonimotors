@@ -43,7 +43,7 @@ function RevendedorPage() {
             </h2>
             <p className="mt-3 text-foreground/70 max-w-md mx-auto">
               Caso não encontre um representante na sua cidade,{" "}
-              <Link to="/representantes" className="text-[var(--brand-blue)] underline underline-offset-4 font-medium">
+              <Link to="/representantes" className="text-[var(--brand-orange)] underline underline-offset-4 font-medium">
                 seja você o primeiro
               </Link>.
             </p>

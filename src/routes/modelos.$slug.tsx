@@ -141,14 +141,14 @@ function ModelPage() {
           <Link to="/encontre-um-revendedor" className="group block bg-[var(--ink)] text-[var(--paper)] p-10 md:p-14">
             <div className="eyebrow text-[var(--brand-blue)]">Compra</div>
             <h3 className="mt-4 text-2xl md:text-3xl">Encontre o revendedor PISONI mais próximo</h3>
-            <div className="mt-8 inline-flex items-center gap-2 text-[var(--brand-blue)] font-display">
+            <div className="mt-8 inline-flex items-center gap-2 text-[var(--brand-orange)] font-display">
               Buscar revendedor <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </div>
           </Link>
           <Link to="/representantes" className="group block bg-card border border-border p-10 md:p-14">
             <div className="eyebrow">Negócio</div>
             <h3 className="mt-4 text-2xl md:text-3xl">Não há revendedor na sua cidade? Seja o primeiro.</h3>
-            <div className="mt-8 inline-flex items-center gap-2 text-[var(--brand-blue)] font-display">
+            <div className="mt-8 inline-flex items-center gap-2 text-[var(--brand-orange)] font-display">
               Quero representar <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </div>
           </Link>
