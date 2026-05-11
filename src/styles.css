@@ -38,6 +38,8 @@
   --color-paper: var(--paper);
   --color-copper: var(--copper);
   --color-copper-foreground: var(--copper-foreground);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-orange: var(--brand-orange);
 }
 
 :root {
