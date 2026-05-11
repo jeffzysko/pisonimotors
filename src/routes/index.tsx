@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
 import heroImg from "@/assets/hero-scooter.jpg";
-import urbaImg from "@/assets/urba.jpg";
+import urbaImg from "@/assets/c23-branca.png";
 import moveImg from "@/assets/move.jpg";
 import { ArrowUpRight, Sparkles, VolumeX, LifeBuoy, ShieldCheck } from "lucide-react";
 
