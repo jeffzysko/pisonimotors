@@ -125,7 +125,7 @@ function HomePage() {
                       </div>
                     ))}
                   </dl>
-                  <div className="mt-6 text-sm font-display font-medium text-[var(--brand-blue)]">Conhecer modelo →</div>
+                  <div className="mt-6 text-sm font-display font-medium text-[var(--brand-blue)] group-hover:text-[var(--brand-orange)] transition-colors">Conhecer modelo →</div>
                 </div>
               </Link>
             ))}
