@@ -20,8 +20,8 @@ export function Footer() {
           <div className="eyebrow mb-4">Marca</div>
           <ul className="space-y-2 text-sm">
             <li><Link to="/sobre" className="text-white/70 hover:text-white">Sobre</Link></li>
-            <li><Link to="/modelos/c23" className="text-white/70 hover:text-white">PISONI C23</Link></li>
-            <li><Link to="/modelos/p112" className="text-white/70 hover:text-white">PISONI P112</Link></li>
+            <li><Link to="/modelos/c23" className="text-white/70 hover:text-white">C23</Link></li>
+            <li><Link to="/modelos/p112" className="text-white/70 hover:text-white">P112</Link></li>
           </ul>
         </div>
         <div>
