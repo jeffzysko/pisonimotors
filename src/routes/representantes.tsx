@@ -19,35 +19,35 @@ export const Route = createFileRoute("/representantes")({
 });
 
 const steps = [
-  { n: "01", icon: FileSignature, title: "Você se cadastra", text: "Preenche o formulário com seus dados, capacidade e experiência." },
-  { n: "02", icon: Compass, title: "Avaliamos juntos", text: "Nosso time comercial avalia o fit estratégico para a sua região." },
-  { n: "03", icon: MapPin, title: "Exclusividade territorial", text: "Contrato com exclusividade na sua cidade, formalizado por escrito." },
-  { n: "04", icon: Headset, title: "Leads e suporte", text: "Você passa a receber leads qualificados e suporte completo." },
+  { n: "01", icon: FileSignature, title: "Você se cadastra", text: "Conte sobre você, sua cidade e seu plano de negócio." },
+  { n: "02", icon: Compass, title: "Avaliamos juntos", text: "Nosso time entra em contato em até 5 dias úteis para uma conversa." },
+  { n: "03", icon: MapPin, title: "Exclusividade territorial", text: "Aprovado, você se torna o único representante PISONI da sua cidade." },
+  { n: "04", icon: Headset, title: "Leads e suporte", text: "Marketing nacional, treinamento, peças e leads da sua região direto no seu WhatsApp." },
 ];
 
 const benefits = [
-  { icon: MapPin, title: "Exclusividade territorial em contrato" },
-  { icon: BarChart3, title: "Leads qualificados do site nacional" },
+  { icon: MapPin, title: "Exclusividade territorial garantida em contrato" },
+  { icon: BarChart3, title: "Leads qualificados gerados pelo site nacional" },
   { icon: GraduationCap, title: "Treinamento técnico e comercial" },
   { icon: Wrench, title: "Margem competitiva" },
-  { icon: Megaphone, title: "Suporte de marketing" },
-  { icon: Package, title: "Peças e assistência" },
+  { icon: Megaphone, title: "Suporte de marketing e comunicação local" },
+  { icon: Package, title: "Pronto suporte em peças e assistência" },
 ];
 
 const expectations = [
-  "Capital para estoque inicial",
-  "Capacidade de assistência técnica",
-  "Comprometimento com a marca",
+  "Capital para estoque inicial e ponto comercial",
+  "Capacidade de prestar assistência técnica (própria ou terceirizada)",
+  "Comprometimento com a experiência da marca PISONI",
   "Conhecimento do mercado local",
 ];
 
 const faq = [
-  { q: "Quanto preciso investir?", a: "O investimento varia conforme a praça e o modelo de operação. Trabalhamos com faixas a partir de R$ 100 mil. No nosso primeiro contato, alinhamos cenários adequados à sua cidade." },
-  { q: "Como funciona a exclusividade territorial?", a: "Cada cidade tem um único representante PISONI. Isso é formalizado em contrato, garantindo que todos os leads e ações de marketing da sua região sejam direcionados para você." },
-  { q: "Preciso ter experiência no setor?", a: "Não é obrigatório, mas é desejável. Buscamos parceiros com perfil empreendedor, conhecimento do mercado local e capacidade de operar assistência técnica." },
-  { q: "Vocês fornecem treinamento?", a: "Sim. Oferecemos treinamento técnico e comercial completo, presencial e remoto, antes da abertura da operação e de forma contínua." },
-  { q: "Como recebo os leads?", a: "Todos os leads gerados pelo site nacional para a sua cidade chegam diretamente ao seu CRM e WhatsApp comercial, em tempo real." },
-  { q: "Em quanto tempo a operação começa?", a: "Após aprovação e assinatura do contrato, o setup completo costuma levar de 60 a 90 dias, incluindo treinamento, primeiro pedido de estoque e ativação de marketing." },
+  { q: "Qual o investimento inicial estimado?", a: "Varia conforme a praça e o modelo de operação. Trabalhamos com faixas a partir de R$ 100 mil. No primeiro contato, alinhamos cenários adequados à sua cidade." },
+  { q: "Preciso ter ponto comercial físico?", a: "Não obrigatoriamente. Aceitamos modelos como showroom com agendamento, desde que haja capacidade de exposição e atendimento à altura da marca." },
+  { q: "Como funciona a exclusividade territorial?", a: "Cada cidade tem um único representante PISONI, formalizado em contrato. Todos os leads e ações de marketing da sua região são direcionados a você." },
+  { q: "Quanto tempo até começar a operar?", a: "Após aprovação e assinatura do contrato, o setup completo costuma levar de 60 a 90 dias — incluindo treinamento, primeiro pedido de estoque e ativação de marketing." },
+  { q: "PISONI vende direto ao consumidor?", a: "Não. A PISONI não compete com seus representantes. Toda venda final acontece pela rede autorizada na cidade do cliente." },
+  { q: "Já existe representante na minha cidade?", a: "Cadastre-se mesmo assim. Se a praça já estiver ocupada, retornamos com cidades vizinhas disponíveis ou mantemos seu cadastro como prioridade caso ela abra." },
 ];
 
 function RepresentantesPage() {
