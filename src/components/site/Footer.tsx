@@ -3,7 +3,7 @@ import { Instagram, Linkedin, Youtube } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-[var(--ink)] text-[var(--paper)] mt-24">
+    <footer className="bg-[var(--ink)] text-[var(--paper)]">
       <div className="container-x py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
           <div className="font-display text-2xl font-bold tracking-tight">PISONI</div>
