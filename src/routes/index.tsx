@@ -43,14 +43,25 @@ function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/30" />
         <div className="container-x relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 text-[var(--paper)]">
-          <div className="eyebrow text-[var(--copper)]">PISONI · Elétricas</div>
-          <h1 className="mt-4 max-w-4xl text-4xl md:text-6xl lg:text-7xl leading-[1.02]">
+          <div className="eyebrow text-[var(--copper)] animate-fade-in" style={{ animationDelay: "0ms", animationFillMode: "both" }}>
+            PISONI · Elétricas
+          </div>
+          <h1
+            className="mt-4 max-w-4xl font-bold leading-[1.02] text-4xl md:text-6xl lg:text-[72px] animate-fade-in"
+            style={{ letterSpacing: "-0.02em", animationDelay: "120ms", animationFillMode: "both" }}
+          >
             Mobilidade elétrica para quem se move com propósito.
           </h1>
-          <p className="mt-6 max-w-xl text-base md:text-lg text-white/75">
+          <p
+            className="mt-6 max-w-xl text-base md:text-[20px] leading-relaxed text-white/60 animate-fade-in"
+            style={{ animationDelay: "260ms", animationFillMode: "both" }}
+          >
             Scooters PISONI: design autoral, tecnologia silenciosa, presença urbana.
           </p>
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div
+            className="mt-10 flex flex-wrap gap-3 animate-fade-in"
+            style={{ animationDelay: "400ms", animationFillMode: "both" }}
+          >
             <Link to="/representantes" className="btn-primary">
               Seja Representante PISONI <ArrowUpRight size={16} />
             </Link>
