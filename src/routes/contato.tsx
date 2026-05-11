@@ -32,8 +32,8 @@ function ContatoPage() {
 
           <div className="mt-16 grid md:grid-cols-2 gap-4">
             {channels.map((c) => (
-              <a key={c.label} href={c.href} className="group block bg-card border border-border p-8 hover:border-[var(--copper)] transition-colors">
-                <c.icon className="text-[var(--copper)]" size={26} strokeWidth={1.5} />
+              <a key={c.label} href={c.href} className="group block bg-card border border-border p-8 hover:border-[var(--brand-blue)] transition-colors">
+                <c.icon className="text-[var(--brand-blue)]" size={26} strokeWidth={1.5} />
                 <div className="mt-4 eyebrow">{c.label}</div>
                 <div className="mt-2 font-display text-xl">{c.value}</div>
                 <div className="mt-2 text-sm text-foreground/60">{c.note}</div>

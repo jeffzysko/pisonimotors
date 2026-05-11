@@ -43,7 +43,7 @@ function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/30" />
         <div className="container-x relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 text-[var(--paper)]">
-          <div className="eyebrow text-[var(--copper)] animate-fade-in" style={{ animationDelay: "0ms", animationFillMode: "both" }}>
+          <div className="eyebrow text-[var(--brand-blue)] animate-fade-in" style={{ animationDelay: "0ms", animationFillMode: "both" }}>
             PISONI · Elétricas
           </div>
           <h1
@@ -109,12 +109,12 @@ function HomePage() {
                       <span>{m.name}</span>
                       <span
                         aria-hidden
-                        className="text-2xl text-[var(--copper)] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0"
+                        className="text-2xl text-[var(--brand-blue)] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0"
                       >
                         →
                       </span>
                     </h3>
-                    <ArrowUpRight className="text-foreground/40 group-hover:text-[var(--copper)] transition-colors duration-300" />
+                    <ArrowUpRight className="text-foreground/40 group-hover:text-[var(--brand-blue)] transition-colors duration-300" />
                   </div>
                   <p className="mt-2 text-foreground/60">{m.tagline}</p>
                   <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
@@ -125,7 +125,7 @@ function HomePage() {
                       </div>
                     ))}
                   </dl>
-                  <div className="mt-6 text-sm font-display font-medium text-[var(--copper)]">Conhecer modelo →</div>
+                  <div className="mt-6 text-sm font-display font-medium text-[var(--brand-blue)]">Conhecer modelo →</div>
                 </div>
               </Link>
             ))}
@@ -141,7 +141,7 @@ function HomePage() {
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
             {pillars.map(({ icon: Icon, title, text }) => (
               <div key={title}>
-                <Icon className="text-[var(--copper)]" size={28} strokeWidth={1.5} />
+                <Icon className="text-[var(--brand-blue)]" size={28} strokeWidth={1.5} />
                 <h3 className="mt-5 text-lg font-display font-semibold">{title}</h3>
                 <p className="mt-2 text-sm text-foreground/60 leading-relaxed">{text}</p>
               </div>
@@ -154,7 +154,7 @@ function HomePage() {
       <section className="bg-[var(--ink)] text-[var(--paper)]">
         <div className="container-x py-24 md:py-32">
           <div className="max-w-3xl">
-            <div className="eyebrow text-[var(--copper)] mb-4">Rede de Representantes</div>
+            <div className="eyebrow text-[var(--brand-blue)] mb-4">Rede de Representantes</div>
             <h2 className="text-3xl md:text-5xl">Sua cidade ainda não tem um representante PISONI?</h2>
             <p className="mt-6 text-lg text-white/70">
               Estamos expandindo nossa rede de parceiros exclusivos. Cada cidade, um representante.

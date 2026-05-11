@@ -137,12 +137,12 @@ function LoginForm() {
         <div>
           <label className="block text-xs uppercase tracking-wider text-foreground/60 mb-2">E-mail</label>
           <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-            className="w-full bg-transparent border-b border-border focus:border-[var(--copper)] outline-none py-2.5" />
+            className="w-full bg-transparent border-b border-border focus:border-[var(--brand-blue)] outline-none py-2.5" />
         </div>
         <div>
           <label className="block text-xs uppercase tracking-wider text-foreground/60 mb-2">Senha</label>
           <input type="password" required minLength={8} value={password} onChange={(e) => setPassword(e.target.value)}
-            className="w-full bg-transparent border-b border-border focus:border-[var(--copper)] outline-none py-2.5" />
+            className="w-full bg-transparent border-b border-border focus:border-[var(--brand-blue)] outline-none py-2.5" />
         </div>
         {error && <p className="text-sm text-destructive">{error}</p>}
         {info && <p className="text-sm text-foreground/70">{info}</p>}

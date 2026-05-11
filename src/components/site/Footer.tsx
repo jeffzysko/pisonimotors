@@ -14,9 +14,9 @@ export function Footer() {
             Projetada e fabricada em Santa Rosa, Rio Grande do Sul.
           </p>
           <div className="mt-6 flex gap-4">
-            <a href="#" aria-label="Instagram" className="text-white/60 hover:text-[var(--copper)] transition-colors"><Instagram size={20} /></a>
-            <a href="#" aria-label="LinkedIn" className="text-white/60 hover:text-[var(--copper)] transition-colors"><Linkedin size={20} /></a>
-            <a href="#" aria-label="YouTube" className="text-white/60 hover:text-[var(--copper)] transition-colors"><Youtube size={20} /></a>
+            <a href="#" aria-label="Instagram" className="text-white/60 hover:text-[var(--brand-blue)] transition-colors"><Instagram size={20} /></a>
+            <a href="#" aria-label="LinkedIn" className="text-white/60 hover:text-[var(--brand-blue)] transition-colors"><Linkedin size={20} /></a>
+            <a href="#" aria-label="YouTube" className="text-white/60 hover:text-[var(--brand-blue)] transition-colors"><Youtube size={20} /></a>
           </div>
         </div>
         <div>

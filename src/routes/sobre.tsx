@@ -16,7 +16,7 @@ function SobrePage() {
     <SiteLayout>
       <section className="py-24 md:py-36 bg-[var(--ink)] text-[var(--paper)]">
         <div className="container-x max-w-4xl">
-          <div className="eyebrow text-[var(--copper)] mb-4">Sobre</div>
+          <div className="eyebrow text-[var(--brand-blue)] mb-4">Sobre</div>
           <h1 className="text-4xl md:text-7xl leading-[1.05]">
             <span className="block md:inline">Nascida no Rio Grande do Sul.</span>{" "}
             <span className="block md:inline">Pensada para todo o Brasil.</span>
@@ -44,7 +44,7 @@ function SobrePage() {
       <section className="py-20 bg-secondary/40 border-y border-border">
         <div className="container-x grid md:grid-cols-3 gap-12 max-w-5xl items-start">
           <div>
-            <div className="eyebrow text-[var(--copper)] mb-4">Origem</div>
+            <div className="eyebrow text-[var(--brand-blue)] mb-4">Origem</div>
             <div className="font-display text-5xl md:text-6xl font-bold leading-none">Santa Rosa</div>
             <div className="mt-3 text-base text-foreground/80">Rio Grande do Sul — Brasil</div>
             <div className="mt-2 text-xs font-mono text-foreground/50">27°52′S  54°28′O</div>
@@ -68,7 +68,7 @@ function SobrePage() {
             { n: "2025", t: "Linha completa", d: "Chegada da P112 e expansão da rede nacional." },
           ].map((it) => (
             <div key={it.n}>
-              <div className="font-display text-5xl text-[var(--copper)]">{it.n}</div>
+              <div className="font-display text-5xl text-[var(--brand-blue)]">{it.n}</div>
               <div className="mt-4 font-display text-xl font-semibold">{it.t}</div>
               <p className="mt-2 text-foreground/60">{it.d}</p>
             </div>
