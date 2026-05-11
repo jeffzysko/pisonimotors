@@ -56,7 +56,7 @@ function RepresentantesPage() {
       {/* Hero */}
       <section className="bg-[var(--ink)] text-[var(--paper)]">
         <div className="container-x py-24 md:py-36">
-          <div className="eyebrow text-[var(--copper)] mb-4">Rede de Representantes</div>
+          <div className="eyebrow text-[var(--brand-blue)] mb-4">Rede de Representantes</div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl max-w-4xl leading-[1.05]">
             Represente a PISONI na sua cidade.
           </h1>
@@ -74,7 +74,7 @@ function RepresentantesPage() {
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((s) => (
               <div key={s.n} className="border-t border-border pt-6">
-                <div className="font-display text-sm text-[var(--copper)] tracking-widest">{s.n}</div>
+                <div className="font-display text-sm text-[var(--brand-blue)] tracking-widest">{s.n}</div>
                 <s.icon className="mt-4" size={26} strokeWidth={1.5} />
                 <h3 className="mt-4 font-display text-lg font-semibold">{s.title}</h3>
                 <p className="mt-2 text-sm text-foreground/60 leading-relaxed">{s.text}</p>
@@ -93,7 +93,7 @@ function RepresentantesPage() {
             <ul className="mt-10 grid sm:grid-cols-2 gap-6">
               {benefits.map((b) => (
                 <li key={b.title} className="flex gap-4">
-                  <b.icon className="text-[var(--copper)] shrink-0 mt-1" size={22} strokeWidth={1.5} />
+                  <b.icon className="text-[var(--brand-blue)] shrink-0 mt-1" size={22} strokeWidth={1.5} />
                   <span className="font-display font-medium">{b.title}</span>
                 </li>
               ))}

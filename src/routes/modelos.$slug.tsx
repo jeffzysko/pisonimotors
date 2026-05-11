@@ -54,7 +54,7 @@ function ModelPage() {
                       onClick={() => setActiveColor(i)}
                       aria-label={c.name}
                       aria-pressed={activeColor === i}
-                      className={`h-9 w-9 rounded-full border transition-all ${activeColor === i ? "ring-2 ring-[var(--copper)] ring-offset-2 ring-offset-secondary" : "border-foreground/20 hover:border-foreground/40"}`}
+                      className={`h-9 w-9 rounded-full border transition-all ${activeColor === i ? "ring-2 ring-[var(--brand-blue)] ring-offset-2 ring-offset-secondary" : "border-foreground/20 hover:border-foreground/40"}`}
                       style={{ backgroundColor: c.hex }}
                     />
                   ))}
@@ -90,7 +90,7 @@ function ModelPage() {
       {/* Specs */}
       <section className="py-24 bg-[var(--ink)] text-[var(--paper)]">
         <div className="container-x">
-          <div className="eyebrow text-[var(--copper)] mb-3">Ficha técnica</div>
+          <div className="eyebrow text-[var(--brand-blue)] mb-3">Ficha técnica</div>
           <h2 className="text-3xl md:text-5xl">Cada número, uma escolha.</h2>
           <div className="mt-12 max-w-3xl">
             {m.specs.map((s) => (
@@ -139,16 +139,16 @@ function ModelPage() {
       <section className="py-24">
         <div className="container-x grid md:grid-cols-2 gap-6">
           <Link to="/encontre-um-revendedor" className="group block bg-[var(--ink)] text-[var(--paper)] p-10 md:p-14">
-            <div className="eyebrow text-[var(--copper)]">Compra</div>
+            <div className="eyebrow text-[var(--brand-blue)]">Compra</div>
             <h3 className="mt-4 text-2xl md:text-3xl">Encontre o revendedor PISONI mais próximo</h3>
-            <div className="mt-8 inline-flex items-center gap-2 text-[var(--copper)] font-display">
+            <div className="mt-8 inline-flex items-center gap-2 text-[var(--brand-orange)] font-display">
               Buscar revendedor <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </div>
           </Link>
           <Link to="/representantes" className="group block bg-card border border-border p-10 md:p-14">
             <div className="eyebrow">Negócio</div>
             <h3 className="mt-4 text-2xl md:text-3xl">Não há revendedor na sua cidade? Seja o primeiro.</h3>
-            <div className="mt-8 inline-flex items-center gap-2 text-[var(--copper)] font-display">
+            <div className="mt-8 inline-flex items-center gap-2 text-[var(--brand-orange)] font-display">
               Quero representar <ArrowUpRight size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </div>
           </Link>

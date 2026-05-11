@@ -38,15 +38,20 @@
   --color-paper: var(--paper);
   --color-copper: var(--copper);
   --color-copper-foreground: var(--copper-foreground);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-orange: var(--brand-orange);
 }
 
 :root {
   --radius: 0.25rem;
 
   /* Brand */
-  --ink: oklch(0.12 0 0);          /* #0A0A0A deep black */
-  --paper: oklch(0.975 0.005 90);   /* #F7F7F5 off white */
-  --copper: oklch(0.62 0.12 55);    /* #B87333 copper */
+  --ink: oklch(0.12 0 0);                /* #0A0A0A deep black */
+  --paper: oklch(0.975 0.005 90);        /* #F7F7F5 off white */
+  --brand-blue: oklch(0.74 0.14 220);    /* #00B5E2 cyan elétrico */
+  --brand-orange: oklch(0.68 0.20 42);   /* #FF6A13 laranja CTA */
+  --brand-orange-hover: oklch(0.62 0.20 40); /* #E55F0F hover */
+  --copper: var(--brand-orange);         /* legacy alias → laranja CTA */
   --copper-foreground: oklch(0.98 0.005 90);
 
   --background: var(--paper);
@@ -113,15 +118,15 @@
     font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--copper);
+    color: var(--brand-blue);
   }
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium tracking-wide transition-all;
-    background: var(--copper);
+    background: var(--brand-orange);
     color: var(--copper-foreground);
     font-family: var(--font-display);
   }
-  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--brand-orange-hover); transform: translateY(-1px); }
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium tracking-wide transition-all border;
     border-color: currentColor;

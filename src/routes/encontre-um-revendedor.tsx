@@ -37,13 +37,13 @@ function RevendedorPage() {
           </div>
 
           <div className="mt-14 border border-dashed border-border p-10 md:p-14 text-center bg-card">
-            <MapPin className="mx-auto text-[var(--copper)]" size={32} strokeWidth={1.5} />
+            <MapPin className="mx-auto text-[var(--brand-blue)]" size={32} strokeWidth={1.5} />
             <h2 className="mt-6 font-display text-2xl">
               Estamos expandindo nossa rede.
             </h2>
             <p className="mt-3 text-foreground/70 max-w-md mx-auto">
               Caso não encontre um representante na sua cidade,{" "}
-              <Link to="/representantes" className="text-[var(--copper)] underline underline-offset-4 font-medium">
+              <Link to="/representantes" className="text-[var(--brand-orange)] underline underline-offset-4 font-medium">
                 seja você o primeiro
               </Link>.
             </p>
