@@ -97,7 +97,7 @@ function HomePage() {
               <Link
                 key={m.slug}
                 to="/modelos/$slug" params={{ slug: m.slug }}
-                className="group block bg-card border border-border overflow-hidden"
+                className="group block bg-card border border-border overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.25)]"
               >
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
                   <img src={m.img} alt={`PISONI ${m.name}`} loading="lazy" width={1280} height={1024}
@@ -105,8 +105,16 @@ function HomePage() {
                 </div>
                 <div className="p-6 md:p-8">
                   <div className="flex items-baseline justify-between">
-                    <h3 className="text-3xl md:text-4xl">{m.name}</h3>
-                    <ArrowUpRight className="text-foreground/40 group-hover:text-[var(--copper)] transition-colors" />
+                    <h3 className="text-3xl md:text-4xl flex items-baseline gap-2">
+                      <span>{m.name}</span>
+                      <span
+                        aria-hidden
+                        className="text-2xl text-[var(--copper)] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0"
+                      >
+                        →
+                      </span>
+                    </h3>
+                    <ArrowUpRight className="text-foreground/40 group-hover:text-[var(--copper)] transition-colors duration-300" />
                   </div>
                   <p className="mt-2 text-foreground/60">{m.tagline}</p>
                   <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
