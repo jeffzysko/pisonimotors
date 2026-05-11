@@ -149,7 +149,14 @@ export function RepresentanteForm() {
         </div>
       </div>
 
-      <div className="p-6 md:p-10 space-y-8">
+      <div className="p-6 md:p-10 overflow-hidden">
+        <div
+          key={step}
+          className="space-y-8"
+          style={{
+            animation: `${direction === "forward" ? "step-slide-in-right" : "step-slide-in-left"} 320ms cubic-bezier(0.22, 1, 0.36, 1) both`,
+          }}
+        >
         {step === 1 && (
           <>
             <div className="grid md:grid-cols-2 gap-6">
