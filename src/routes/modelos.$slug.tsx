@@ -1,20 +1,22 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
-import { MODELS } from "@/lib/models-data";
+import { MODELS, type ModelSlug } from "@/lib/models-data";
 import { ArrowUpRight } from "lucide-react";
+
+const isModelSlug = (s: string): s is ModelSlug => s === "c23" || s === "p112";
 
 export const Route = createFileRoute("/modelos/$slug")({
   beforeLoad: ({ params }) => {
-    if (params.slug !== "urba" && params.slug !== "move") throw notFound();
+    if (!isModelSlug(params.slug)) throw notFound();
   },
   head: ({ params }) => {
-    const m = MODELS[params.slug as "urba" | "move"];
-    if (!m) return { meta: [{ title: "Modelo não encontrado — PISONI" }] };
+    if (!isModelSlug(params.slug)) return { meta: [{ title: "Modelo não encontrado — PISONI" }] };
+    const m = MODELS[params.slug];
     return {
       meta: [
-        { title: `PISONI ${m.name} — ${m.tagline}` },
+        { title: `${m.name} — ${m.tagline}` },
         { name: "description", content: m.intro },
-        { property: "og:title", content: `PISONI ${m.name}` },
+        { property: "og:title", content: m.name },
         { property: "og:description", content: m.tagline },
         { property: "og:image", content: m.image },
       ],
@@ -25,7 +27,9 @@ export const Route = createFileRoute("/modelos/$slug")({
 
 function ModelPage() {
   const { slug } = Route.useParams();
-  const m = MODELS[slug as "urba" | "move"];
+  if (!isModelSlug(slug)) return null;
+  const m = MODELS[slug];
+
 
   return (
     <SiteLayout>
@@ -38,7 +42,7 @@ function ModelPage() {
             <p className="mt-8 max-w-md text-lg text-foreground/70">{m.tagline}</p>
           </div>
           <div className="aspect-[4/3] bg-card overflow-hidden">
-            <img src={m.image} alt={`PISONI ${m.name}`} width={1280} height={1024} className="h-full w-full object-cover" />
+            <img src={m.image} alt={`${m.name}`} width={1280} height={1024} className="h-full w-full object-cover" />
           </div>
         </div>
       </section>

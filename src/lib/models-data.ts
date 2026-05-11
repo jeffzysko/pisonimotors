@@ -1,8 +1,10 @@
-import urbaImg from "@/assets/urba.jpg";
-import moveImg from "@/assets/move.jpg";
+import c23Img from "@/assets/urba.jpg";
+import p112Img from "@/assets/move.jpg";
+
+export type ModelSlug = "c23" | "p112";
 
 export type ModelData = {
-  slug: "urba" | "move";
+  slug: ModelSlug;
   name: string;
   tagline: string;
   intro: string;
@@ -12,13 +14,13 @@ export type ModelData = {
   tech: { title: string; text: string }[];
 };
 
-export const MODELS: Record<"urba" | "move", ModelData> = {
-  urba: {
-    slug: "urba",
-    name: "URBA",
+export const MODELS: Record<ModelSlug, ModelData> = {
+  c23: {
+    slug: "c23",
+    name: "PISONI C23",
     tagline: "A scooter para quem se move pela cidade todos os dias.",
-    intro: "Leve, ágil e silenciosa. URBA é a resposta da PISONI para o uso diário urbano — sem barulho, sem combustão, sem comprometer estilo.",
-    image: urbaImg,
+    intro: "Leve, ágil e silenciosa. A PISONI C23 é a resposta para o uso diário urbano — sem barulho, sem combustão, sem comprometer estilo.",
+    image: c23Img,
     specs: [
       { label: "Autonomia", value: "80 km" },
       { label: "Velocidade máxima", value: "65 km/h" },
@@ -44,12 +46,12 @@ export const MODELS: Record<"urba" | "move", ModelData> = {
       { title: "Freios regenerativos", text: "Recuperação de energia em desacelerações." },
     ],
   },
-  move: {
-    slug: "move",
-    name: "MOVE",
+  p112: {
+    slug: "p112",
+    name: "PISONI P112",
     tagline: "Performance e autonomia para quem leva mais longe.",
-    intro: "MOVE é categoria moto elétrica. Mais potência, mais alcance, mais presença. Para quem precisa de uma máquina capaz de cobrir trajetos completos sem concessões.",
-    image: moveImg,
+    intro: "A PISONI P112 é categoria moto elétrica. Mais potência, mais alcance, mais presença. Para quem precisa de uma máquina capaz de cobrir trajetos completos sem concessões.",
+    image: p112Img,
     specs: [
       { label: "Autonomia", value: "140 km" },
       { label: "Velocidade máxima", value: "95 km/h" },

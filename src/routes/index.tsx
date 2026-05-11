@@ -18,8 +18,8 @@ export const Route = createFileRoute("/")({
 });
 
 const models = [
-  { slug: "urba", img: urbaImg, name: "URBA", tagline: "Para o dia a dia da cidade.", specs: [["Autonomia", "80 km"], ["Vel. máx", "65 km/h"], ["Carga", "4–6h"]] },
-  { slug: "move", img: moveImg, name: "MOVE", tagline: "Performance e autonomia estendida.", specs: [["Autonomia", "140 km"], ["Vel. máx", "95 km/h"], ["Carga", "5–7h"]] },
+  { slug: "c23", img: urbaImg, name: "PISONI C23", tagline: "Para o dia a dia da cidade.", specs: [["Autonomia", "80 km"], ["Vel. máx", "65 km/h"], ["Carga", "4–6h"]] },
+  { slug: "p112", img: moveImg, name: "PISONI P112", tagline: "Performance e autonomia estendida.", specs: [["Autonomia", "140 km"], ["Vel. máx", "95 km/h"], ["Carga", "5–7h"]] },
 ] as const;
 
 const pillars = [
@@ -100,7 +100,7 @@ function HomePage() {
                 className="group block bg-card border border-border overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.25)]"
               >
                 <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  <img src={m.img} alt={`PISONI ${m.name}`} loading="lazy" width={1280} height={1024}
+                  <img src={m.img} alt={m.name} loading="lazy" width={1280} height={1024}
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                 </div>
                 <div className="p-6 md:p-8">
