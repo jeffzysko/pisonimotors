@@ -42,7 +42,7 @@ function ModelPage() {
             <p className="mt-8 max-w-md text-lg text-foreground/70">{m.tagline}</p>
           </div>
           <div className="aspect-[4/3] bg-card overflow-hidden">
-            <img src={m.image} alt={`PISONI ${m.name}`} width={1280} height={1024} className="h-full w-full object-cover" />
+            <img src={m.image} alt={`${m.name}`} width={1280} height={1024} className="h-full w-full object-cover" />
           </div>
         </div>
       </section>
