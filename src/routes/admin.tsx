@@ -65,22 +65,21 @@ function AdminPage() {
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_e, session) => {
-      setUserId(session?.user?.id ?? null);
-      if (session?.user?.id) {
-        const { data } = await supabase.from("user_roles").select("role").eq("user_id", session.user.id).eq("role", "admin").maybeSingle();
-        setIsAdmin(!!data);
-      } else {
-        setIsAdmin(false);
-      }
+    const checkRole = (uid: string | null) => {
+      if (!uid) { setIsAdmin(false); return; }
+      supabase.from("user_roles").select("role").eq("user_id", uid).eq("role", "admin").maybeSingle()
+        .then(({ data }) => setIsAdmin(!!data));
+    };
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_e, session) => {
+      const uid = session?.user?.id ?? null;
+      setUserId(uid);
+      checkRole(uid);
       setAuthLoading(false);
     });
-    supabase.auth.getSession().then(async ({ data: { session } }) => {
-      setUserId(session?.user?.id ?? null);
-      if (session?.user?.id) {
-        const { data } = await supabase.from("user_roles").select("role").eq("user_id", session.user.id).eq("role", "admin").maybeSingle();
-        setIsAdmin(!!data);
-      }
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      const uid = session?.user?.id ?? null;
+      setUserId(uid);
+      checkRole(uid);
       setAuthLoading(false);
     });
     return () => subscription.unsubscribe();
