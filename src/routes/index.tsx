@@ -76,9 +76,8 @@ function HomePage() {
       <section className="py-28 md:py-40">
         <div className="container-x max-w-5xl">
           <div className="eyebrow mb-8">Manifesto</div>
-          <p className="font-display text-3xl md:text-5xl leading-[1.15] tracking-tight">
-            Acreditamos que a forma como você se move pela cidade diz algo sobre quem você é.
-            <span className="text-foreground/40"> A PISONI nasceu para quem escolhe silêncio, design e responsabilidade — sem abrir mão da presença.</span>
+          <p className="font-display font-normal text-2xl md:text-[34px] leading-[1.4] tracking-tight text-foreground">
+            Acreditamos que a forma como você se move pela cidade diz algo sobre quem você é. A PISONI nasceu para quem escolhe silêncio, design e responsabilidade — sem abrir mão da presença.
           </p>
         </div>
       </section>
