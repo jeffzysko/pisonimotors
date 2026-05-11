@@ -54,6 +54,7 @@ function RadioGroup({ name, value, onChange, options, error, columns = 1 }: {
 
 export function RepresentanteForm() {
   const [step, setStep] = useState(1);
+  const [direction, setDirection] = useState<"forward" | "back">("forward");
   const [data, setData] = useState(initial);
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
@@ -77,8 +78,16 @@ export function RepresentanteForm() {
   const next = () => {
     const schema = step === 1 ? step1Schema : step === 2 ? step2Schema : step3Schema;
     if (!validate(schema)) return;
-    if (step < 3) setStep(step + 1);
-    else void submit();
+    if (step < 3) {
+      setDirection("forward");
+      setStep(step + 1);
+    } else void submit();
+  };
+
+  const back = () => {
+    setDirection("back");
+    setErrors({});
+    setStep((s) => Math.max(1, s - 1));
   };
 
   const submit = async () => {
@@ -140,7 +149,14 @@ export function RepresentanteForm() {
         </div>
       </div>
 
-      <div className="p-6 md:p-10 space-y-8">
+      <div className="p-6 md:p-10 overflow-hidden">
+        <div
+          key={step}
+          className="space-y-8"
+          style={{
+            animation: `${direction === "forward" ? "step-slide-in-right" : "step-slide-in-left"} 320ms cubic-bezier(0.22, 1, 0.36, 1) both`,
+          }}
+        >
         {step === 1 && (
           <>
             <div className="grid md:grid-cols-2 gap-6">
@@ -263,19 +279,27 @@ export function RepresentanteForm() {
         )}
 
         {errors.form && <p className="text-sm text-destructive">{errors.form}</p>}
+        </div>
 
-        <div className="flex items-center justify-between pt-4 border-t border-border">
+        <div className="flex items-center justify-between pt-6 mt-2 border-t border-border">
           <button
             type="button"
-            onClick={() => setStep((s) => Math.max(1, s - 1))}
+            onClick={back}
             disabled={step === 1 || submitting}
             className="btn-outline disabled:opacity-30 disabled:cursor-not-allowed"
           >
             <ArrowLeft size={16} /> Voltar
           </button>
-          <button type="button" onClick={next} disabled={submitting} className="btn-primary">
-            {submitting ? <Loader2 size={16} className="animate-spin" /> : null}
-            {step < 3 ? <>Próximo <ArrowRight size={16} /></> : "Enviar cadastro"}
+          <button type="button" onClick={next} disabled={submitting} className="btn-primary disabled:opacity-70 disabled:cursor-wait">
+            {submitting ? (
+              <>
+                <Loader2 size={16} className="animate-spin" /> Enviando…
+              </>
+            ) : step < 3 ? (
+              <>Próximo <ArrowRight size={16} /></>
+            ) : (
+              <>Enviar cadastro <ArrowRight size={16} /></>
+            )}
           </button>
         </div>
       </div>
