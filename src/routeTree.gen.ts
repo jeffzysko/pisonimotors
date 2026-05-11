@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SobreRouteImport } from './routes/sobre'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RepresentantesRouteImport } from './routes/representantes'
 import { Route as EncontreUmRevendedorRouteImport } from './routes/encontre-um-revendedor'
 import { Route as ContatoRouteImport } from './routes/contato'
@@ -19,6 +20,11 @@ import { Route as ModelosSlugRouteImport } from './routes/modelos.$slug'
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RepresentantesRoute = RepresentantesRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/contato': typeof ContatoRoute
   '/encontre-um-revendedor': typeof EncontreUmRevendedorRoute
   '/representantes': typeof RepresentantesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/modelos/$slug': typeof ModelosSlugRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/contato': typeof ContatoRoute
   '/encontre-um-revendedor': typeof EncontreUmRevendedorRoute
   '/representantes': typeof RepresentantesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/modelos/$slug': typeof ModelosSlugRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/contato': typeof ContatoRoute
   '/encontre-um-revendedor': typeof EncontreUmRevendedorRoute
   '/representantes': typeof RepresentantesRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
   '/modelos/$slug': typeof ModelosSlugRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/encontre-um-revendedor'
     | '/representantes'
+    | '/sitemap.xml'
     | '/sobre'
     | '/modelos/$slug'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/encontre-um-revendedor'
     | '/representantes'
+    | '/sitemap.xml'
     | '/sobre'
     | '/modelos/$slug'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/contato'
     | '/encontre-um-revendedor'
     | '/representantes'
+    | '/sitemap.xml'
     | '/sobre'
     | '/modelos/$slug'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   ContatoRoute: typeof ContatoRoute
   EncontreUmRevendedorRoute: typeof EncontreUmRevendedorRoute
   RepresentantesRoute: typeof RepresentantesRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
   ModelosSlugRoute: typeof ModelosSlugRoute
 }
@@ -115,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/sobre'
       fullPath: '/sobre'
       preLoaderRoute: typeof SobreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/representantes': {
@@ -160,9 +180,20 @@ const rootRouteChildren: RootRouteChildren = {
   ContatoRoute: ContatoRoute,
   EncontreUmRevendedorRoute: EncontreUmRevendedorRoute,
   RepresentantesRoute: RepresentantesRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
   ModelosSlugRoute: ModelosSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
