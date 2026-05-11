@@ -54,6 +54,7 @@ function RadioGroup({ name, value, onChange, options, error, columns = 1 }: {
 
 export function RepresentanteForm() {
   const [step, setStep] = useState(1);
+  const [direction, setDirection] = useState<"forward" | "back">("forward");
   const [data, setData] = useState(initial);
   const [errors, setErrors] = useState<Errors>({});
   const [submitting, setSubmitting] = useState(false);
@@ -77,8 +78,16 @@ export function RepresentanteForm() {
   const next = () => {
     const schema = step === 1 ? step1Schema : step === 2 ? step2Schema : step3Schema;
     if (!validate(schema)) return;
-    if (step < 3) setStep(step + 1);
-    else void submit();
+    if (step < 3) {
+      setDirection("forward");
+      setStep(step + 1);
+    } else void submit();
+  };
+
+  const back = () => {
+    setDirection("back");
+    setErrors({});
+    setStep((s) => Math.max(1, s - 1));
   };
 
   const submit = async () => {
