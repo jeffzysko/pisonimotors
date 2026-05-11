@@ -18,7 +18,7 @@ function SobrePage() {
         <div className="container-x max-w-4xl">
           <div className="eyebrow text-[var(--copper)] mb-4">Sobre</div>
           <h1 className="text-4xl md:text-7xl leading-[1.05]">
-            <span className="block md:inline">Nascida em Santa Rosa.</span>{" "}
+            <span className="block md:inline">Nascida no Rio Grande do Sul.</span>{" "}
             <span className="block md:inline">Pensada para todo o Brasil.</span>
           </h1>
         </div>
