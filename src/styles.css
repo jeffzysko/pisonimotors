@@ -118,15 +118,15 @@
     font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--copper);
+    color: var(--brand-blue);
   }
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium tracking-wide transition-all;
-    background: var(--copper);
+    background: var(--brand-orange);
     color: var(--copper-foreground);
     font-family: var(--font-display);
   }
-  .btn-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--brand-orange-hover); transform: translateY(-1px); }
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium tracking-wide transition-all border;
     border-color: currentColor;
