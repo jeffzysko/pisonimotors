@@ -7,9 +7,11 @@ export const ESTADOS = [
 
 export const maskPhone = (v: string) => {
   const d = v.replace(/\D/g, "").slice(0, 11);
-  if (d.length <= 10) return d.replace(/(\d{0,2})(\d{0,4})(\d{0,4}).*/, (_, a, b, c) =>
-    [a && `(${a}`, a.length === 2 ? ") " : "", b, c && `-${c}`].filter(Boolean).join(""));
-  return d.replace(/(\d{2})(\d{5})(\d{0,4}).*/, "($1) $2-$3");
+  if (d.length === 0) return "";
+  if (d.length <= 2) return `(${d}`;
+  if (d.length <= 6) return `(${d.slice(0,2)}) ${d.slice(2)}`;
+  if (d.length <= 10) return `(${d.slice(0,2)}) ${d.slice(2,6)}-${d.slice(6)}`;
+  return `(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`;
 };
 
 export const maskCNPJ = (v: string) => {
@@ -21,15 +23,17 @@ export const maskCNPJ = (v: string) => {
     .replace(/(\d{4})(\d)/, "$1-$2");
 };
 
+const req = (msg = "Campo obrigatório") => z.string().trim().min(1, msg);
+
 export const step1Schema = z.object({
-  full_name: z.string().trim().min(2, "Informe seu nome completo").max(120),
+  full_name: req("Informe seu nome completo").max(120),
   email: z.string().trim().email("E-mail inválido").max(160),
-  whatsapp: z.string().trim().min(14, "WhatsApp incompleto").max(20),
-  city: z.string().trim().min(2, "Informe a cidade").max(80),
-  state: z.enum(ESTADOS, { message: "Selecione o estado" }),
+  whatsapp: req("Informe seu WhatsApp").min(14, "WhatsApp incompleto").max(20),
+  city: req("Informe a cidade").max(80),
+  state: req("Selecione o estado"),
   entity_type: z.enum(["PF", "PJ"]),
-  company_name: z.string().trim().max(160).optional(),
-  cnpj: z.string().trim().max(20).optional(),
+  company_name: z.string().trim().max(160).optional().or(z.literal("")),
+  cnpj: z.string().trim().max(20).optional().or(z.literal("")),
 }).refine(
   (d) => d.entity_type === "PF" || (d.company_name && d.company_name.length >= 2),
   { path: ["company_name"], message: "Informe a razão social" }
@@ -39,21 +43,18 @@ export const step1Schema = z.object({
 );
 
 export const step2Schema = z.object({
-  investment_range: z.enum(["ate_100", "100_250", "250_500", "acima_500"], { message: "Selecione uma faixa" }),
-  has_commercial_point: z.enum(["proprio", "alugado", "planejo", "showroom"], { message: "Selecione uma opção" }),
-  working_capital: z.enum(["sim", "nao", "avaliacao"], { message: "Selecione uma opção" }),
+  investment_range: req("Selecione uma faixa"),
+  has_commercial_point: req("Selecione uma opção"),
+  working_capital: req("Selecione uma opção"),
 });
 
 export const step3Schema = z.object({
-  has_sector_experience: z.enum(["sim", "nao"], { message: "Selecione uma opção" }),
+  has_sector_experience: req("Selecione uma opção"),
   experience_years: z.string().optional(),
-  technical_team: z.enum(["propria", "parceria", "contratar", "indefinido"], { message: "Selecione uma opção" }),
+  technical_team: req("Selecione uma opção"),
   motivation: z.string().trim().min(20, "Conte um pouco mais (mín. 20 caracteres)").max(500),
-  lgpd_accepted: z.literal(true, { message: "É necessário aceitar para continuar" }),
+  lgpd_accepted: z.boolean().refine((v) => v === true, { message: "É necessário aceitar para continuar" }),
 }).refine(
   (d) => d.has_sector_experience === "nao" || (d.experience_years && d.experience_years.length > 0),
   { path: ["experience_years"], message: "Informe há quanto tempo" }
 );
-
-export const fullSchema = step1Schema.and(step2Schema).and(step3Schema);
-export type FullForm = z.infer<typeof fullSchema>;
