@@ -109,12 +109,12 @@ function HomePage() {
                       <span>{m.name}</span>
                       <span
                         aria-hidden
-                        className="text-2xl text-[var(--brand-blue)] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0"
+                        className="text-2xl text-[var(--brand-blue)] group-hover:text-[var(--brand-orange)] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0"
                       >
                         →
                       </span>
                     </h3>
-                    <ArrowUpRight className="text-foreground/40 group-hover:text-[var(--brand-blue)] transition-colors duration-300" />
+                    <ArrowUpRight className="text-foreground/40 group-hover:text-[var(--brand-orange)] transition-colors duration-300" />
                   </div>
                   <p className="mt-2 text-foreground/60">{m.tagline}</p>
                   <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
