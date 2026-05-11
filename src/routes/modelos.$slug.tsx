@@ -29,7 +29,9 @@ function ModelPage() {
   const { slug } = Route.useParams();
   if (!isModelSlug(slug)) return null;
   const m = MODELS[slug];
-
+  const [activeColor, setActiveColor] = useState(0);
+  const heroImg = m.colors?.[activeColor]?.image ?? m.image;
+  const gallery = m.gallery ?? [m.image, m.image, m.image, m.image, m.image];
 
   return (
     <SiteLayout>
@@ -40,9 +42,28 @@ function ModelPage() {
             <div className="eyebrow mb-4">Modelo</div>
             <h1 className="text-6xl md:text-8xl leading-none">{m.name}</h1>
             <p className="mt-8 max-w-md text-lg text-foreground/70">{m.tagline}</p>
+            {m.colors && (
+              <div className="mt-10">
+                <div className="eyebrow mb-3">Cores</div>
+                <div className="flex items-center gap-3">
+                  {m.colors.map((c, i) => (
+                    <button
+                      key={c.name}
+                      type="button"
+                      onClick={() => setActiveColor(i)}
+                      aria-label={c.name}
+                      aria-pressed={activeColor === i}
+                      className={`h-9 w-9 rounded-full border transition-all ${activeColor === i ? "ring-2 ring-[var(--copper)] ring-offset-2 ring-offset-secondary" : "border-foreground/20 hover:border-foreground/40"}`}
+                      style={{ backgroundColor: c.hex }}
+                    />
+                  ))}
+                  <span className="ml-2 font-display text-sm text-foreground/70">{m.colors[activeColor].name}</span>
+                </div>
+              </div>
+            )}
           </div>
           <div className="aspect-[4/3] bg-card overflow-hidden">
-            <img src={m.image} alt={`${m.name}`} width={1280} height={1024} className="h-full w-full object-cover" />
+            <img src={heroImg} alt={`${m.name} — ${m.colors?.[activeColor]?.name ?? ""}`} width={1280} height={1024} className="h-full w-full object-contain transition-opacity duration-300" />
           </div>
         </div>
       </section>
@@ -57,9 +78,9 @@ function ModelPage() {
       {/* Gallery */}
       <section className="pb-24">
         <div className="container-x grid grid-cols-2 md:grid-cols-3 gap-3">
-          {[m.image, m.image, m.image, m.image, m.image].slice(0, 5).map((src, i) => (
+          {gallery.slice(0, 5).map((src, i) => (
             <div key={i} className={`bg-secondary overflow-hidden ${i === 0 ? "col-span-2 md:col-span-2 row-span-2 aspect-square" : "aspect-square"}`}>
-              <img src={src} alt={`${m.name} – foto ${i + 1}`} loading="lazy" className="h-full w-full object-cover" />
+              <img src={src} alt={`${m.name} – foto ${i + 1}`} loading="lazy" className="h-full w-full object-contain" />
             </div>
           ))}
         </div>
