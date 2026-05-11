@@ -24,9 +24,9 @@ export type ModelData = {
 export const MODELS: Record<ModelSlug, ModelData> = {
   c23: {
     slug: "c23",
-    name: "PISONI C23",
+    name: "C23",
     tagline: "Mobilidade urbana leve, silenciosa e prática.",
-    intro: "A PISONI C23 é uma e-bike urbana pensada para o trajeto do dia a dia. Estrutura em aço carbono, motor brushless de 800 W e bateria removível para carregar onde quiser. Três cores, uma única atitude: se mover melhor pela cidade.",
+    intro: "A C23 é uma e-bike urbana pensada para o trajeto do dia a dia. Estrutura em aço carbono, motor brushless de 800 W e bateria removível para carregar onde quiser. Três cores, uma única atitude: se mover melhor pela cidade.",
     image: c23Branca,
     gallery: [c23Branca, c23Azul, c23Preta, c23Lateral],
     colors: [
@@ -67,9 +67,9 @@ export const MODELS: Record<ModelSlug, ModelData> = {
 
   p112: {
     slug: "p112",
-    name: "PISONI P112",
+    name: "P112",
     tagline: "Performance e autonomia para quem leva mais longe.",
-    intro: "A PISONI P112 é categoria moto elétrica. Mais potência, mais alcance, mais presença. Para quem precisa de uma máquina capaz de cobrir trajetos completos sem concessões.",
+    intro: "A P112 é categoria moto elétrica. Mais potência, mais alcance, mais presença. Para quem precisa de uma máquina capaz de cobrir trajetos completos sem concessões.",
     image: p112Img,
     specs: [
       { label: "Autonomia", value: "140 km" },
