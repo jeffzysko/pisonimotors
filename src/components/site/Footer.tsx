@@ -10,6 +10,9 @@ export function Footer() {
           <p className="mt-4 max-w-sm text-sm text-white/60">
             Mobilidade elétrica premium. Design autoral, tecnologia silenciosa, presença urbana.
           </p>
+          <p className="mt-2 max-w-sm text-xs text-white/40">
+            Projetada e fabricada em Santa Rosa, Rio Grande do Sul.
+          </p>
           <div className="mt-6 flex gap-4">
             <a href="#" aria-label="Instagram" className="text-white/60 hover:text-[var(--copper)] transition-colors"><Instagram size={20} /></a>
             <a href="#" aria-label="LinkedIn" className="text-white/60 hover:text-[var(--copper)] transition-colors"><Linkedin size={20} /></a>
