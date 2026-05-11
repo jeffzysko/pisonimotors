@@ -18,7 +18,7 @@ export const Route = createFileRoute("/")({
 });
 
 const models = [
-  { slug: "c23", img: urbaImg, name: "PISONI C23", tagline: "Para o dia a dia da cidade.", specs: [["Autonomia", "80 km"], ["Vel. máx", "65 km/h"], ["Carga", "4–6h"]] },
+  { slug: "c23", img: urbaImg, name: "PISONI C23", tagline: "Para o dia a dia da cidade.", specs: [["Autonomia", "31–60 km"], ["Vel. máx", "50 km/h"], ["Carga", "> 3h"]] },
   { slug: "p112", img: moveImg, name: "PISONI P112", tagline: "Performance e autonomia estendida.", specs: [["Autonomia", "140 km"], ["Vel. máx", "95 km/h"], ["Carga", "5–7h"]] },
 ] as const;
 
