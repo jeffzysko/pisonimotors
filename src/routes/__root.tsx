@@ -80,6 +80,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "PISONI — Mobilidade elétrica premium" },
+      { name: "twitter:description", content: "Scooters e motos elétricas PISONI: design autoral, tecnologia silenciosa, presença urbana." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/27852b4b-49f3-4099-9036-bbd7f6706c3b/id-preview-5ad67ad4--c5ca34fa-5175-4bc5-accd-1105df244a2e.lovable.app-1778532539255.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/27852b4b-49f3-4099-9036-bbd7f6706c3b/id-preview-5ad67ad4--c5ca34fa-5175-4bc5-accd-1105df244a2e.lovable.app-1778532539255.png" },
     ],
     links: [
       {
