@@ -18,7 +18,8 @@ function SobrePage() {
         <div className="container-x max-w-4xl">
           <div className="eyebrow text-[var(--copper)] mb-4">Sobre</div>
           <h1 className="text-4xl md:text-7xl leading-[1.05]">
-            Marca brasileira. Padrão global.
+            <span className="block md:inline">Nascida em Santa Rosa.</span>{" "}
+            <span className="block md:inline">Pensada para todo o Brasil.</span>
           </h1>
         </div>
       </section>
@@ -26,29 +27,45 @@ function SobrePage() {
       <section className="py-24">
         <div className="container-x max-w-3xl space-y-8 text-lg leading-relaxed text-foreground/80">
           <p className="font-display text-2xl md:text-3xl text-foreground leading-snug">
-            A PISONI nasceu da convicção de que mobilidade urbana pode — e deve — ser silenciosa, bonita e responsável.
+            A PISONI nasceu no interior do Rio Grande do Sul — em Santa Rosa, cidade de tradição industrial gaúcha — da convicção de que mobilidade urbana pode (e deve) ser silenciosa, bonita e responsável.
           </p>
           <p>
-            Projetamos cada scooter e cada moto como uma peça autoral: linhas próprias, materiais selecionados,
-            tecnologia que desaparece em uso. Nada é decorativo. Tudo serve à experiência de pilotagem.
+            Projetamos cada scooter e cada moto como peça autoral: linhas próprias, materiais selecionados, tecnologia que desaparece em uso. Nada é decorativo. Tudo serve à experiência de pilotagem.
           </p>
           <p>
-            Operamos no Brasil com produção nacional e uma rede de representantes exclusivos por cidade.
-            Cada parceiro PISONI é a marca na rua, próximo do cliente, com estoque, assistência e treinamento.
+            Operamos com produção nacional e uma rede de representantes exclusivos por cidade. Cada parceiro PISONI é a marca na rua, próximo do cliente — com estoque, assistência e treinamento.
           </p>
           <p>
-            Não somos para todos. Somos para quem escolhe — quem prefere silêncio a ruído, design a cópia,
-            durabilidade a descarte. Para quem entende que se mover pela cidade é, também, uma forma de dizer quem é.
+            Carregamos um jeito gaúcho de fazer: atenção ao detalhe, palavra que se cumpre, trabalho como ofício. Não somos para todos. Somos para quem escolhe — quem prefere silêncio a ruído, design a cópia, durabilidade a descarte.
           </p>
         </div>
       </section>
 
-      <section className="py-24 border-t border-border">
+      <section className="py-20 bg-secondary/40 border-y border-border">
+        <div className="container-x grid md:grid-cols-3 gap-12 max-w-5xl items-start">
+          <div>
+            <div className="eyebrow text-[var(--copper)] mb-4">Origem</div>
+            <div className="font-display text-5xl md:text-6xl font-bold leading-none">Santa Rosa</div>
+            <div className="mt-3 text-base text-foreground/80">Rio Grande do Sul — Brasil</div>
+            <div className="mt-2 text-xs font-mono text-foreground/50">27°52′S  54°28′O</div>
+          </div>
+          <div className="md:col-span-2">
+            <p className="font-display italic text-2xl md:text-4xl leading-snug text-foreground">
+              “Aqui projetamos, fabricamos e despachamos cada PISONI.”
+            </p>
+            <p className="mt-6 text-foreground/60">
+              Da raiz gaúcha para o asfalto de cada cidade brasileira.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
         <div className="container-x grid md:grid-cols-3 gap-10 max-w-5xl">
           {[
-            { n: "2022", t: "Fundação", d: "Início do projeto PISONI no Brasil." },
+            { n: "2022", t: "Fundação em Santa Rosa/RS", d: "Início do projeto PISONI no Brasil." },
             { n: "2024", t: "Primeiro modelo", d: "Lançamento da scooter C23." },
-            { n: "2025", t: "Linha completa", d: "Chegada da P112 e expansão da rede." },
+            { n: "2025", t: "Linha completa", d: "Chegada da P112 e expansão da rede nacional." },
           ].map((it) => (
             <div key={it.n}>
               <div className="font-display text-5xl text-[var(--copper)]">{it.n}</div>
