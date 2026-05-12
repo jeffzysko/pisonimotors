@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Instagram, Linkedin, Youtube } from "lucide-react";
+import { CONTACT } from "@/lib/contact";
 import logoLight from "@/assets/pisoni-logo-white.png";
 
 export function Footer() {
@@ -33,7 +34,7 @@ export function Footer() {
           <ul className="space-y-2 text-sm text-white/70">
             <li><Link to="/representantes" className="hover:text-white">Comercial / B2B</Link></li>
             <li><Link to="/encontre-um-revendedor" className="hover:text-white">Encontrar revendedor</Link></li>
-            <li><a href="mailto:imprensa@pisoni.com.br" className="hover:text-white">Imprensa</a></li>
+            <li><a href={`mailto:${CONTACT.press.email}`} className="hover:text-white">Imprensa</a></li>
           </ul>
         </div>
       </div>

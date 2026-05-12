@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/Layout";
 import { Mail, Phone, Newspaper, Briefcase } from "lucide-react";
+import { CONTACT, whatsappUrl } from "@/lib/contact";
 
 export const Route = createFileRoute("/contato")({
   head: () => ({
@@ -13,10 +14,10 @@ export const Route = createFileRoute("/contato")({
 });
 
 const channels = [
-  { icon: Briefcase, label: "Comercial / B2B", value: "comercial@pisoni.com.br", href: "mailto:comercial@pisoni.com.br", note: "Para representantes e revendedores." },
-  { icon: Mail, label: "Atendimento", value: "contato@pisoni.com.br", href: "mailto:contato@pisoni.com.br", note: "Dúvidas gerais sobre produtos." },
-  { icon: Newspaper, label: "Imprensa", value: "imprensa@pisoni.com.br", href: "mailto:imprensa@pisoni.com.br", note: "Solicitações de mídia e materiais." },
-  { icon: Phone, label: "WhatsApp", value: "+55 11 90000-0000", href: "https://wa.me/5511900000000", note: "Atendimento 9h às 18h, dias úteis." },
+  { icon: Briefcase, label: CONTACT.commercial.label, value: CONTACT.commercial.email, href: `mailto:${CONTACT.commercial.email}`, note: CONTACT.commercial.note },
+  { icon: Mail, label: CONTACT.general.label, value: CONTACT.general.email, href: `mailto:${CONTACT.general.email}`, note: CONTACT.general.note },
+  { icon: Newspaper, label: CONTACT.press.label, value: CONTACT.press.email, href: `mailto:${CONTACT.press.email}`, note: CONTACT.press.note },
+  { icon: Phone, label: CONTACT.whatsapp.label, value: CONTACT.whatsapp.number, href: whatsappUrl(), note: CONTACT.whatsapp.note },
 ];
 
 function ContatoPage() {
