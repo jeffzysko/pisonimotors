@@ -40,6 +40,9 @@ function HomePage() {
           className="absolute inset-0 h-full w-full object-cover"
           width={1920}
           height={1280}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/30" />
         <div className="container-x relative z-10 h-full flex flex-col justify-end pb-16 md:pb-24 text-[var(--paper)]">
