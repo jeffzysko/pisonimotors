@@ -18,7 +18,10 @@ import { Route as EncontreUmRevendedorRouteImport } from './routes/encontre-um-r
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as RevendedoresIndexRouteImport } from './routes/revendedores.index'
 import { Route as ModelosSlugRouteImport } from './routes/modelos.$slug'
+import { Route as RevendedoresCitySlugIndexRouteImport } from './routes/revendedores.$citySlug.index'
+import { Route as RevendedoresCitySlugSlugRouteImport } from './routes/revendedores.$citySlug.$slug'
 
 const TermosRoute = TermosRouteImport.update({
   id: '/termos',
@@ -65,11 +68,28 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RevendedoresIndexRoute = RevendedoresIndexRouteImport.update({
+  id: '/revendedores/',
+  path: '/revendedores/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ModelosSlugRoute = ModelosSlugRouteImport.update({
   id: '/modelos/$slug',
   path: '/modelos/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RevendedoresCitySlugIndexRoute =
+  RevendedoresCitySlugIndexRouteImport.update({
+    id: '/revendedores/$citySlug/',
+    path: '/revendedores/$citySlug/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const RevendedoresCitySlugSlugRoute =
+  RevendedoresCitySlugSlugRouteImport.update({
+    id: '/revendedores/$citySlug/$slug',
+    path: '/revendedores/$citySlug/$slug',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +102,9 @@ export interface FileRoutesByFullPath {
   '/sobre': typeof SobreRoute
   '/termos': typeof TermosRoute
   '/modelos/$slug': typeof ModelosSlugRoute
+  '/revendedores/': typeof RevendedoresIndexRoute
+  '/revendedores/$citySlug/$slug': typeof RevendedoresCitySlugSlugRoute
+  '/revendedores/$citySlug/': typeof RevendedoresCitySlugIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +117,9 @@ export interface FileRoutesByTo {
   '/sobre': typeof SobreRoute
   '/termos': typeof TermosRoute
   '/modelos/$slug': typeof ModelosSlugRoute
+  '/revendedores': typeof RevendedoresIndexRoute
+  '/revendedores/$citySlug/$slug': typeof RevendedoresCitySlugSlugRoute
+  '/revendedores/$citySlug': typeof RevendedoresCitySlugIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +133,9 @@ export interface FileRoutesById {
   '/sobre': typeof SobreRoute
   '/termos': typeof TermosRoute
   '/modelos/$slug': typeof ModelosSlugRoute
+  '/revendedores/': typeof RevendedoresIndexRoute
+  '/revendedores/$citySlug/$slug': typeof RevendedoresCitySlugSlugRoute
+  '/revendedores/$citySlug/': typeof RevendedoresCitySlugIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +150,9 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/termos'
     | '/modelos/$slug'
+    | '/revendedores/'
+    | '/revendedores/$citySlug/$slug'
+    | '/revendedores/$citySlug/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +165,9 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/termos'
     | '/modelos/$slug'
+    | '/revendedores'
+    | '/revendedores/$citySlug/$slug'
+    | '/revendedores/$citySlug'
   id:
     | '__root__'
     | '/'
@@ -145,6 +180,9 @@ export interface FileRouteTypes {
     | '/sobre'
     | '/termos'
     | '/modelos/$slug'
+    | '/revendedores/'
+    | '/revendedores/$citySlug/$slug'
+    | '/revendedores/$citySlug/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +196,9 @@ export interface RootRouteChildren {
   SobreRoute: typeof SobreRoute
   TermosRoute: typeof TermosRoute
   ModelosSlugRoute: typeof ModelosSlugRoute
+  RevendedoresIndexRoute: typeof RevendedoresIndexRoute
+  RevendedoresCitySlugSlugRoute: typeof RevendedoresCitySlugSlugRoute
+  RevendedoresCitySlugIndexRoute: typeof RevendedoresCitySlugIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -225,11 +266,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/revendedores/': {
+      id: '/revendedores/'
+      path: '/revendedores'
+      fullPath: '/revendedores/'
+      preLoaderRoute: typeof RevendedoresIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/modelos/$slug': {
       id: '/modelos/$slug'
       path: '/modelos/$slug'
       fullPath: '/modelos/$slug'
       preLoaderRoute: typeof ModelosSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/revendedores/$citySlug/': {
+      id: '/revendedores/$citySlug/'
+      path: '/revendedores/$citySlug'
+      fullPath: '/revendedores/$citySlug/'
+      preLoaderRoute: typeof RevendedoresCitySlugIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/revendedores/$citySlug/$slug': {
+      id: '/revendedores/$citySlug/$slug'
+      path: '/revendedores/$citySlug/$slug'
+      fullPath: '/revendedores/$citySlug/$slug'
+      preLoaderRoute: typeof RevendedoresCitySlugSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -246,7 +308,20 @@ const rootRouteChildren: RootRouteChildren = {
   SobreRoute: SobreRoute,
   TermosRoute: TermosRoute,
   ModelosSlugRoute: ModelosSlugRoute,
+  RevendedoresIndexRoute: RevendedoresIndexRoute,
+  RevendedoresCitySlugSlugRoute: RevendedoresCitySlugSlugRoute,
+  RevendedoresCitySlugIndexRoute: RevendedoresCitySlugIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
