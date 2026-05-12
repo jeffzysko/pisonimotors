@@ -75,6 +75,24 @@ export function RepresentanteForm() {
     return true;
   };
 
+  // Validate a single field on blur. Runs the current step's schema but only
+  // updates (or clears) the error for the field that just lost focus, leaving
+  // other fields' state alone. Result: user gets feedback as they move
+  // through the form, not only when they click "Próximo".
+  const validateField = (fieldName: string) => {
+    const schema = step === 1 ? step1Schema : step === 2 ? step2Schema : step3Schema;
+    const result = schema.safeParse(data);
+    setErrors((prev) => {
+      const next = { ...prev };
+      const issue = result.success
+        ? undefined
+        : result.error.issues.find((i) => i.path.join(".") === fieldName);
+      if (issue) next[fieldName] = issue.message;
+      else delete next[fieldName];
+      return next;
+    });
+  };
+
   const next = () => {
     const schema = step === 1 ? step1Schema : step === 2 ? step2Schema : step3Schema;
     if (!validate(schema)) return;
@@ -161,19 +179,19 @@ export function RepresentanteForm() {
           <>
             <div className="grid md:grid-cols-2 gap-6">
               <Field label="Nome completo *" error={errors.full_name}>
-                <input className={inputCls} value={data.full_name} onChange={(e) => set("full_name", e.target.value)} />
+                <input className={inputCls} value={data.full_name} onChange={(e) => set("full_name", e.target.value)} onBlur={() => validateField("full_name")} />
               </Field>
               <Field label="E-mail *" error={errors.email}>
-                <input type="email" className={inputCls} value={data.email} onChange={(e) => set("email", e.target.value)} />
+                <input type="email" className={inputCls} value={data.email} onChange={(e) => set("email", e.target.value)} onBlur={() => validateField("email")} />
               </Field>
               <Field label="WhatsApp *" error={errors.whatsapp}>
-                <input className={inputCls} placeholder="(00) 00000-0000" value={data.whatsapp} onChange={(e) => set("whatsapp", maskPhone(e.target.value))} />
+                <input className={inputCls} placeholder="(00) 00000-0000" value={data.whatsapp} onChange={(e) => set("whatsapp", maskPhone(e.target.value))} onBlur={() => validateField("whatsapp")} />
               </Field>
               <Field label="Cidade *" error={errors.city}>
-                <input className={inputCls} value={data.city} onChange={(e) => set("city", e.target.value)} />
+                <input className={inputCls} value={data.city} onChange={(e) => set("city", e.target.value)} onBlur={() => validateField("city")} />
               </Field>
               <Field label="Estado *" error={errors.state}>
-                <select className={inputCls} value={data.state} onChange={(e) => set("state", e.target.value)}>
+                <select className={inputCls} value={data.state} onChange={(e) => set("state", e.target.value)} onBlur={() => validateField("state")}>
                   <option value="">Selecione…</option>
                   {ESTADOS.map((s) => <option key={s} value={s}>{s}</option>)}
                 </select>
@@ -186,10 +204,10 @@ export function RepresentanteForm() {
             {data.entity_type === "PJ" && (
               <div className="grid md:grid-cols-2 gap-6 pt-2 border-t border-border">
                 <Field label="Razão social *" error={errors.company_name}>
-                  <input className={inputCls} value={data.company_name} onChange={(e) => set("company_name", e.target.value)} />
+                  <input className={inputCls} value={data.company_name} onChange={(e) => set("company_name", e.target.value)} onBlur={() => validateField("company_name")} />
                 </Field>
                 <Field label="CNPJ *" error={errors.cnpj}>
-                  <input className={inputCls} placeholder="00.000.000/0000-00" value={data.cnpj} onChange={(e) => set("cnpj", maskCNPJ(e.target.value))} />
+                  <input className={inputCls} placeholder="00.000.000/0000-00" value={data.cnpj} onChange={(e) => set("cnpj", maskCNPJ(e.target.value))} onBlur={() => validateField("cnpj")} />
                 </Field>
               </div>
             )}
@@ -239,7 +257,7 @@ export function RepresentanteForm() {
             </Field>
             {data.has_sector_experience === "sim" && (
               <Field label="Há quanto tempo? *" error={errors.experience_years}>
-                <select className={inputCls} value={data.experience_years} onChange={(e) => set("experience_years", e.target.value)}>
+                <select className={inputCls} value={data.experience_years} onChange={(e) => set("experience_years", e.target.value)} onBlur={() => validateField("experience_years")}>
                   <option value="">Selecione…</option>
                   <option value="menos_1">Menos de 1 ano</option>
                   <option value="1_3">1 a 3 anos</option>
@@ -264,7 +282,8 @@ export function RepresentanteForm() {
                 className={`${inputCls} resize-none border border-border rounded-none focus:border-[var(--copper)] p-3`}
                 rows={5} maxLength={500}
                 value={data.motivation}
-                onChange={(e) => set("motivation", e.target.value)} />
+                onChange={(e) => set("motivation", e.target.value)}
+                onBlur={() => validateField("motivation")} />
             </Field>
             <label className="flex items-start gap-3 cursor-pointer">
               <input type="checkbox" className="mt-1 size-4 accent-[var(--copper)]"
