@@ -16,9 +16,9 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
-      <div className="container-x flex h-16 items-center justify-between">
+      <div className="container-x flex h-20 items-center justify-between">
         <Link to="/" aria-label="PISONI — Página inicial" className="flex items-center" onClick={() => setOpen(false)}>
-          <img src={logoDark} alt="PISONI Motorcycle Electric" className="h-8 md:h-9 w-auto" />
+          <img src={logoDark} alt="PISONI Motorcycle Electric" className="h-12 md:h-14 w-auto" />
         </Link>
         <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (

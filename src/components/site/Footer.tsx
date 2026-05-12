@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="bg-[var(--ink)] text-[var(--paper)]">
       <div className="container-x py-16 grid gap-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <img src={logoLight} alt="PISONI Motorcycle Electric" className="h-10 w-auto" />
+          <img src={logoLight} alt="PISONI Motorcycle Electric" className="h-16 md:h-20 w-auto" />
           <p className="mt-4 max-w-sm text-sm text-white/60">
             Mobilidade elétrica premium. Design autoral, tecnologia silenciosa, presença urbana.
           </p>
