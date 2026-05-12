@@ -245,17 +245,37 @@ function AdminDashboard() {
 
   return (
     <div className="container-x py-12">
-      <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
+      <div className="flex items-center justify-between mb-6 flex-wrap gap-4">
         <div>
           <div className="eyebrow mb-2">Admin</div>
-          <h1 className="text-3xl md:text-4xl">Cadastros de representantes</h1>
-          <p className="text-sm text-foreground/60 mt-2">{filtered.length} de {apps.length} cadastros</p>
+          <h1 className="text-3xl md:text-4xl">Painel</h1>
         </div>
         <div className="flex gap-3">
-          <button onClick={exportCsv} className="btn-outline"><Download size={16} /> Exportar CSV</button>
+          {tab === "applications" && (
+            <button onClick={exportCsv} className="btn-outline"><Download size={16} /> Exportar CSV</button>
+          )}
           <button onClick={() => supabase.auth.signOut()} className="btn-outline"><LogOut size={16} /> Sair</button>
         </div>
       </div>
+
+      <div className="flex gap-2 mb-8 border-b border-border">
+        <button
+          onClick={() => setTab("applications")}
+          className={`px-4 py-3 text-sm border-b-2 -mb-px transition-colors ${tab === "applications" ? "border-[var(--brand-blue)] text-foreground" : "border-transparent text-foreground/60 hover:text-foreground"}`}
+        >
+          Candidaturas ({apps.length})
+        </button>
+        <button
+          onClick={() => setTab("dealers")}
+          className={`px-4 py-3 text-sm border-b-2 -mb-px transition-colors ${tab === "dealers" ? "border-[var(--brand-blue)] text-foreground" : "border-transparent text-foreground/60 hover:text-foreground"}`}
+        >
+          Revendedores
+        </button>
+      </div>
+
+      {tab === "dealers" ? <DealersAdmin /> : (
+      <>
+      <p className="text-sm text-foreground/60 mb-4">{filtered.length} de {apps.length} cadastros</p>
 
       {/* Filters */}
       <div className="grid md:grid-cols-4 gap-3 mb-6 p-4 bg-secondary/40 border border-border">
