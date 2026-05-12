@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logoDark from "@/assets/pisoni-logo.png";
 
 const links = [
   { to: "/modelos/c23", label: "C23" },
