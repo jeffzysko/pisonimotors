@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { ESTADOS } from "@/lib/representante-schema";
 import { SiteLayout } from "@/components/site/Layout";
+import { DealersAdmin } from "@/components/site/DealersAdmin";
 import { Loader2, LogOut, Download, Search } from "lucide-react";
 
 export const Route = createFileRoute("/admin")({
@@ -170,6 +171,7 @@ function NotAdmin() {
 }
 
 function AdminDashboard() {
+  const [tab, setTab] = useState<"applications" | "dealers">("applications");
   const [apps, setApps] = useState<Application[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
