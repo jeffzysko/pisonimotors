@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/Layout";
 import heroImg from "@/assets/hero-scooter.jpg";
 import urbaImg from "@/assets/c23-card.jpg";
 import moveImg from "@/assets/p112-card.jpg";
+import { MODELS } from "@/lib/models-data";
 import { ArrowUpRight, Sparkles, VolumeX, LifeBuoy, ShieldCheck } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -17,10 +18,10 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const models = [
-  { slug: "c23", img: urbaImg, name: "C23", tagline: "Para o dia a dia da cidade.", specs: [["Autonomia", "31–60 km"], ["Vel. máx", "50 km/h"], ["Carga", "> 3h"]] },
-  { slug: "p112", img: moveImg, name: "P112", tagline: "Performance e autonomia estendida.", specs: [["Autonomia", "140 km"], ["Vel. máx", "95 km/h"], ["Carga", "5–7h"]] },
-] as const;
+const HOME_CARDS = [
+  { slug: "c23" as const, img: urbaImg, tagline: "Para o dia a dia da cidade." },
+  { slug: "p112" as const, img: moveImg, tagline: "Performance e autonomia estendida." },
+];
 
 const pillars = [
   { icon: Sparkles, title: "Design autoral", text: "Linhas próprias, sem cópia. Presença em qualquer rua." },
@@ -95,42 +96,46 @@ function HomePage() {
             </div>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
-            {models.map((m) => (
-              <Link
-                key={m.slug}
-                to="/modelos/$slug" params={{ slug: m.slug }}
-                className="group block bg-card border border-border overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.25)]"
-              >
-                <div className="aspect-[4/3] overflow-hidden bg-muted">
-                  <img src={m.img} alt={m.name} loading="lazy" width={1280} height={1024}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
-                </div>
-                <div className="p-6 md:p-8">
-                  <div className="flex items-baseline justify-between">
-                    <h3 className="text-3xl md:text-4xl flex items-baseline gap-2">
-                      <span>{m.name}</span>
-                      <span
-                        aria-hidden
-                        className="text-2xl text-[var(--brand-blue)] group-hover:text-[var(--brand-orange)] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0"
-                      >
-                        →
-                      </span>
-                    </h3>
-                    <ArrowUpRight className="text-foreground/40 group-hover:text-[var(--brand-orange)] transition-colors duration-300" />
+            {HOME_CARDS.map(({ slug, img, tagline }) => {
+              const m = MODELS[slug];
+              const specs = m.card_specs ?? m.specs.slice(0, 3);
+              return (
+                <Link
+                  key={slug}
+                  to="/modelos/$slug" params={{ slug }}
+                  className="group block bg-card border border-border overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_18px_40px_-20px_rgba(0,0,0,0.25)]"
+                >
+                  <div className="aspect-[4/3] overflow-hidden bg-muted">
+                    <img src={img} alt={m.name} loading="lazy" width={1280} height={1024}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
                   </div>
-                  <p className="mt-2 text-foreground/60">{m.tagline}</p>
-                  <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
-                    {m.specs.map(([k, v]) => (
-                      <div key={k}>
-                        <dt className="text-xs uppercase tracking-wider text-foreground/50">{k}</dt>
-                        <dd className="mt-1 font-display font-medium">{v}</dd>
-                      </div>
-                    ))}
-                  </dl>
-                  <div className="mt-6 text-sm font-display font-medium text-[var(--brand-blue)] group-hover:text-[var(--brand-orange)] transition-colors">Conhecer modelo →</div>
-                </div>
-              </Link>
-            ))}
+                  <div className="p-6 md:p-8">
+                    <div className="flex items-baseline justify-between">
+                      <h3 className="text-3xl md:text-4xl flex items-baseline gap-2">
+                        <span>{m.name}</span>
+                        <span
+                          aria-hidden
+                          className="text-2xl text-[var(--brand-blue)] group-hover:text-[var(--brand-orange)] opacity-0 -translate-x-2 transition-all duration-300 ease-out group-hover:opacity-100 group-hover:translate-x-0"
+                        >
+                          →
+                        </span>
+                      </h3>
+                      <ArrowUpRight className="text-foreground/40 group-hover:text-[var(--brand-orange)] transition-colors duration-300" />
+                    </div>
+                    <p className="mt-2 text-foreground/60">{tagline}</p>
+                    <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-6">
+                      {specs.map(({ label, value }) => (
+                        <div key={label}>
+                          <dt className="text-xs uppercase tracking-wider text-foreground/50">{label}</dt>
+                          <dd className="mt-1 font-display font-medium">{value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <div className="mt-6 text-sm font-display font-medium text-[var(--brand-blue)] group-hover:text-[var(--brand-orange)] transition-colors">Conhecer modelo →</div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

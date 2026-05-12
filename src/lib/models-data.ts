@@ -17,6 +17,7 @@ export type ModelData = {
   gallery?: string[];
   colors?: ModelColor[];
   specs: { label: string; value: string }[];
+  card_specs?: { label: string; value: string }[];
   design: { title: string; text: string }[];
   tech: { title: string; text: string }[];
 };
@@ -29,6 +30,11 @@ export const MODELS: Record<ModelSlug, ModelData> = {
     intro: "A C23 é uma e-bike urbana pensada para o trajeto do dia a dia. Estrutura em aço carbono, motor brushless de 800 W e bateria removível para carregar onde quiser. Três cores, uma única atitude: se mover melhor pela cidade.",
     image: c23Branca,
     gallery: [c23Branca, c23Azul, c23Preta, c23Lateral],
+    card_specs: [
+      { label: "Autonomia", value: "31–60 km" },
+      { label: "Vel. máx", value: "50 km/h" },
+      { label: "Carga", value: "> 3h" },
+    ],
     colors: [
       { name: "Branco", hex: "#F4F4F2", image: c23Branca },
       { name: "Azul", hex: "#3FA9F5", image: c23Azul },
@@ -71,6 +77,11 @@ export const MODELS: Record<ModelSlug, ModelData> = {
     tagline: "Performance e autonomia para quem leva mais longe.",
     intro: "A P112 é categoria moto elétrica. Mais potência, mais alcance, mais presença. Para quem precisa de uma máquina capaz de cobrir trajetos completos sem concessões.",
     image: p112Img,
+    card_specs: [
+      { label: "Autonomia", value: "140 km" },
+      { label: "Vel. máx", value: "95 km/h" },
+      { label: "Carga", value: "5–7h" },
+    ],
     specs: [
       { label: "Autonomia", value: "140 km" },
       { label: "Velocidade máxima", value: "95 km/h" },
