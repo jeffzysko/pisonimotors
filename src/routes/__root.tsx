@@ -100,6 +100,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
       { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
     ],
+    scripts: [
+      // Plausible Analytics — privacy-first, sem cookies, LGPD-friendly.
+      // O data-domain abaixo precisa bater com o domínio cadastrado na conta Plausible.
+      {
+        defer: true,
+        "data-domain": "pisonimotors.com.br",
+        src: "https://plausible.io/js/script.js",
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
