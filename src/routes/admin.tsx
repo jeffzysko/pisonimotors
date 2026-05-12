@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import { ESTADOS } from "@/lib/representante-schema";
 import { SiteLayout } from "@/components/site/Layout";
 import { Loader2, LogOut, Download, Search } from "lucide-react";
 
@@ -57,7 +58,6 @@ const INVESTMENT_LABELS: Record<string, string> = {
   acima_500: "Acima de R$ 500 mil",
 };
 
-const ESTADOS = ["AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"];
 
 function AdminPage() {
   const [authLoading, setAuthLoading] = useState(true);
