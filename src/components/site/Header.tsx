@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logoDark from "@/assets/pisoni-logo.png";
 
 const links = [
   { to: "/modelos/c23", label: "C23" },
@@ -16,8 +17,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
       <div className="container-x flex h-16 items-center justify-between">
-        <Link to="/" className="font-display text-xl font-bold tracking-tight" onClick={() => setOpen(false)}>
-          PISONI
+        <Link to="/" aria-label="PISONI — Página inicial" className="flex items-center" onClick={() => setOpen(false)}>
+          <img src={logoDark} alt="PISONI Motorcycle Electric" className="h-8 md:h-9 w-auto" />
         </Link>
         <nav className="hidden lg:flex items-center gap-8">
           {links.map((l) => (
