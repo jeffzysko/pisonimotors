@@ -14,6 +14,77 @@ export type Database = {
   }
   public: {
     Tables: {
+      dealers: {
+        Row: {
+          address: string | null
+          application_id: string | null
+          business_hours: string | null
+          city: string
+          city_slug: string
+          created_at: string
+          email: string | null
+          id: string
+          latitude: number | null
+          longitude: number | null
+          name: string
+          phone: string | null
+          postal_code: string | null
+          published: boolean
+          slug: string
+          state: string
+          updated_at: string
+          whatsapp: string | null
+        }
+        Insert: {
+          address?: string | null
+          application_id?: string | null
+          business_hours?: string | null
+          city: string
+          city_slug: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name: string
+          phone?: string | null
+          postal_code?: string | null
+          published?: boolean
+          slug: string
+          state: string
+          updated_at?: string
+          whatsapp?: string | null
+        }
+        Update: {
+          address?: string | null
+          application_id?: string | null
+          business_hours?: string | null
+          city?: string
+          city_slug?: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          latitude?: number | null
+          longitude?: number | null
+          name?: string
+          phone?: string | null
+          postal_code?: string | null
+          published?: boolean
+          slug?: string
+          state?: string
+          updated_at?: string
+          whatsapp?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "dealers_application_id_fkey"
+            columns: ["application_id"]
+            isOneToOne: false
+            referencedRelation: "representative_applications"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       representative_applications: {
         Row: {
           city: string
@@ -106,6 +177,21 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      dealers_near: {
+        Args: { lat: number; lng: number; max_results?: number }
+        Returns: {
+          address: string
+          city: string
+          city_slug: string
+          distance_km: number
+          id: string
+          name: string
+          phone: string
+          slug: string
+          state: string
+          whatsapp: string
+        }[]
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
@@ -113,6 +199,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      slugify: { Args: { input: string }; Returns: string }
     }
     Enums: {
       app_role: "admin"

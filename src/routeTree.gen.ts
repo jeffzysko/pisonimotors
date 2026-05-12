@@ -9,15 +9,22 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermosRouteImport } from './routes/termos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RepresentantesRouteImport } from './routes/representantes'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as EncontreUmRevendedorRouteImport } from './routes/encontre-um-revendedor'
 import { Route as ContatoRouteImport } from './routes/contato'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ModelosSlugRouteImport } from './routes/modelos.$slug'
 
+const TermosRoute = TermosRouteImport.update({
+  id: '/termos',
+  path: '/termos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
@@ -31,6 +38,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RepresentantesRoute = RepresentantesRouteImport.update({
   id: '/representantes',
   path: '/representantes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EncontreUmRevendedorRoute = EncontreUmRevendedorRouteImport.update({
@@ -64,9 +76,11 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRoute
   '/contato': typeof ContatoRoute
   '/encontre-um-revendedor': typeof EncontreUmRevendedorRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/representantes': typeof RepresentantesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
   '/modelos/$slug': typeof ModelosSlugRoute
 }
 export interface FileRoutesByTo {
@@ -74,9 +88,11 @@ export interface FileRoutesByTo {
   '/admin': typeof AdminRoute
   '/contato': typeof ContatoRoute
   '/encontre-um-revendedor': typeof EncontreUmRevendedorRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/representantes': typeof RepresentantesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
   '/modelos/$slug': typeof ModelosSlugRoute
 }
 export interface FileRoutesById {
@@ -85,9 +101,11 @@ export interface FileRoutesById {
   '/admin': typeof AdminRoute
   '/contato': typeof ContatoRoute
   '/encontre-um-revendedor': typeof EncontreUmRevendedorRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/representantes': typeof RepresentantesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
   '/modelos/$slug': typeof ModelosSlugRoute
 }
 export interface FileRouteTypes {
@@ -97,9 +115,11 @@ export interface FileRouteTypes {
     | '/admin'
     | '/contato'
     | '/encontre-um-revendedor'
+    | '/privacidade'
     | '/representantes'
     | '/sitemap.xml'
     | '/sobre'
+    | '/termos'
     | '/modelos/$slug'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -107,9 +127,11 @@ export interface FileRouteTypes {
     | '/admin'
     | '/contato'
     | '/encontre-um-revendedor'
+    | '/privacidade'
     | '/representantes'
     | '/sitemap.xml'
     | '/sobre'
+    | '/termos'
     | '/modelos/$slug'
   id:
     | '__root__'
@@ -117,9 +139,11 @@ export interface FileRouteTypes {
     | '/admin'
     | '/contato'
     | '/encontre-um-revendedor'
+    | '/privacidade'
     | '/representantes'
     | '/sitemap.xml'
     | '/sobre'
+    | '/termos'
     | '/modelos/$slug'
   fileRoutesById: FileRoutesById
 }
@@ -128,14 +152,23 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRoute
   ContatoRoute: typeof ContatoRoute
   EncontreUmRevendedorRoute: typeof EncontreUmRevendedorRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
   RepresentantesRoute: typeof RepresentantesRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SobreRoute: typeof SobreRoute
+  TermosRoute: typeof TermosRoute
   ModelosSlugRoute: typeof ModelosSlugRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/termos': {
+      id: '/termos'
+      path: '/termos'
+      fullPath: '/termos'
+      preLoaderRoute: typeof TermosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre': {
       id: '/sobre'
       path: '/sobre'
@@ -155,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/representantes'
       fullPath: '/representantes'
       preLoaderRoute: typeof RepresentantesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/encontre-um-revendedor': {
@@ -200,9 +240,11 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRoute,
   ContatoRoute: ContatoRoute,
   EncontreUmRevendedorRoute: EncontreUmRevendedorRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
   RepresentantesRoute: RepresentantesRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SobreRoute: SobreRoute,
+  TermosRoute: TermosRoute,
   ModelosSlugRoute: ModelosSlugRoute,
 }
 export const routeTree = rootRouteImport
