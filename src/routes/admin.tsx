@@ -350,6 +350,8 @@ function AdminDashboard() {
           </table>
         </div>
       )}
+      </>
+      )}
     </div>
   );
 }
