@@ -39,7 +39,7 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="container-x py-6 flex flex-col md:flex-row justify-between gap-3 text-xs text-white/50">
-          <div>© {new Date().getFullYear()} PISONI Mobilidade Elétrica. Todos os direitos reservados.</div>
+          <div>© {new Date().getFullYear()} PISONI Motorcycle Electric. Todos os direitos reservados.</div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white">Termos</a>
             <a href="#" className="hover:text-white">Privacidade</a>
